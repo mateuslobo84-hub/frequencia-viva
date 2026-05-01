@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual do Criativo 2026 + 365 Dias de Postagens — Frequência Viva</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap');
+
+  :root {
+    --ink: #0D0D0D;
+    --red: #C0392B;
+    --red2: #962D22;
+    --paper: #F5F2ED;
+    --cream: #EAE7E1;
+    --cream2: #F0EDE8;
+    --white: #FFFFFF;
+    --gray: #7A7A7A;
+    --lgray: #D8D4CE;
+    --dgray: #232323;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .serif-italic { font-family: 'IBM Plex Serif', serif; font-style: italic; }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announce {
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+  .announce span { opacity: 0.7; margin: 0 12px; }
+
+  /* ── NAVBAR ── */
+  nav {
+    background: var(--ink);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--red);
+  }
+  .nav-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.12em;
+  }
+  .nav-brand strong { color: var(--red); }
+  .nav-cta {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--red2); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 18px,
+      rgba(255,255,255,0.015) 18px,
+      rgba(255,255,255,0.015) 19px
+    );
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .hero h1 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(42px, 7vw, 84px);
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .hero h1 .red-block {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    padding: 0 8px;
+    line-height: 1;
+  }
+  .hero-sub {
+    font-family: 'IBM Plex Serif', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gray);
+    margin: 28px 0 40px;
+    max-width: 620px;
+    line-height: 1.5;
+  }
+
+  /* Stats bar */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #222;
+    border: 1px solid #222;
+    margin-top: 50px;
+  }
+  .stat-box {
+    background: var(--dgray);
+    padding: 20px 24px;
+    border-left: 3px solid var(--red);
+  }
+  .stat-box:first-child { border-left: none; }
+  .stat-num {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── URGENCY BANNER ── */
+  .urgency {
+    background: var(--red);
+    padding: 28px 40px;
+    text-align: center;
+  }
+  .urgency p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .urgency .mono {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 8px;
+    display: block;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section { max-width: 900px; margin: 0 auto; padding: 70px 40px; }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--lgray);
+  }
+  h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--dgray);
+    max-width: 620px;
+    line-height: 1.7;
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .problem-bg { background: var(--cream); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-top: 40px;
+    background: var(--lgray);
+    border: 1px solid var(--lgray);
+  }
+  .prob-card {
+    background: var(--cream2);
+    padding: 28px 24px;
+    border-left: 3px solid transparent;
+  }
+  .prob-card.active { border-left-color: var(--red); background: var(--paper); }
+  .prob-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .prob-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .prob-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  /* ── PRODUCT CARDS ── */
+  .products { background: var(--ink); padding: 70px 0; }
+  .products-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  .products-inner .section-label { color: var(--gray); }
+  .products-inner .section-label::after { background: #333; }
+  .products-inner h2 { color: var(--white); }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .product-card {
+    background: var(--dgray);
+    border-top: 3px solid var(--red);
+    padding: 32px 28px 28px;
+    position: relative;
+  }
+  .product-badge {
+    position: absolute;
+    top: -1px;
+    right: 28px;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 5px 12px;
+  }
+  .product-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .product-card h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .product-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .product-card p { font-size: 14px; color: var(--lgray); line-height: 1.6; margin-bottom: 20px; }
+
+  .feature-list { list-style: none; }
+  .feature-list li {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    padding: 8px 0;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    letter-spacing: 0.03em;
+  }
+  .feature-list li::before {
+    content: '→';
+    color: var(--red);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+
+  /* ── COMBO PRICE BOX ── */
+  .combo-section { background: var(--paper); padding: 70px 0; }
+  .combo-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  .combo-box {
+    background: var(--ink);
+    border-top: 4px solid var(--red);
+    padding: 48px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .combo-box h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .combo-box p { font-size: 15px; color: var(--gray); max-width: 480px; line-height: 1.6; margin-bottom: 20px; }
+
+  .bonus-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .bonus-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border: 1px solid #333;
+    color: var(--gray);
+  }
+  .bonus-tag.hot { border-color: var(--red); color: var(--red); }
+
+  .price-box { text-align: right; min-width: 180px; }
+  .price-old {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--gray);
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .price-now {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .price-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gray);
+    display: block;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+  }
+  .cta-btn {
+    display: block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 16px 28px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .cta-btn:hover { background: var(--red2); }
+  .cta-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 8px;
+    display: block;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── WHY NOW ── */
+  .why-now { background: var(--cream); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 40px;
+    background: var(--lgray);
+  }
+  .why-card {
+    background: var(--paper);
+    padding: 30px 24px;
+    border-top: 3px solid var(--red);
+  }
+  .why-card .icon {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .why-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+  .why-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  /* ── TESTIMONIALS / PROVA ── */
+  .proof-section { padding: 70px 0; background: var(--paper); }
+  .proof-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  .quote-block {
+    background: var(--ink);
+    padding: 36px 36px 30px;
+    margin-top: 40px;
+    border-left: 4px solid var(--red);
+    position: relative;
+  }
+  .quote-mark {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .quote-text {
+    font-family: 'IBM Plex Serif', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--white);
+    line-height: 1.6;
+    max-width: 680px;
+  }
+  .quote-author {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 20px;
+    display: block;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── FOR WHOM ── */
+  .forwhom-bg { background: var(--ink); padding: 70px 0; }
+  .forwhom-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  .forwhom-inner .section-label { color: var(--gray); }
+  .forwhom-inner .section-label::after { background: #333; }
+  .forwhom-inner h2 { color: var(--white); }
+
+  .check-list { list-style: none; margin-top: 32px; }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #1e1e1e;
+    font-size: 16px;
+    color: var(--lgray);
+    line-height: 1.5;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before {
+    content: '✓';
+    color: var(--red);
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── TIMER ── */
+  .timer-section {
+    background: var(--red);
+    padding: 50px 40px;
+    text-align: center;
+  }
+  .timer-section h2 {
+    color: var(--white);
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .timer-section p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    margin-bottom: 32px;
+    font-family: 'IBM Plex Serif', serif;
+    font-style: italic;
+  }
+  .countdown {
+    display: inline-flex;
+    gap: 16px;
+    margin-bottom: 36px;
+    align-items: center;
+  }
+  .count-box {
+    background: rgba(0,0,0,0.25);
+    padding: 16px 20px;
+    min-width: 72px;
+  }
+  .count-num {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+  }
+  .count-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: rgba(255,255,255,0.6);
+    display: block;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+  .count-sep {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+  }
+  .cta-btn-white {
+    display: inline-block;
+    background: var(--white);
+    color: var(--red);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 18px 40px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-btn-white:hover { opacity: 0.9; }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--cream); padding: 70px 0; }
+  .faq-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  .faq-item {
+    border-bottom: 1px solid var(--lgray);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .faq-q::before {
+    content: 'Q';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .faq-a {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+    padding-left: 26px;
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--ink);
+    padding: 90px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 18px,
+      rgba(255,255,255,0.015) 18px, rgba(255,255,255,0.015) 19px
+    );
+    pointer-events: none;
+  }
+  .final-cta-inner { position: relative; max-width: 700px; margin: 0 auto; }
+  .final-cta .mono { color: var(--gray); font-size: 11px; letter-spacing: 0.12em; margin-bottom: 20px; display: block; }
+  .final-cta h2 { color: var(--white); font-size: clamp(32px, 5vw, 56px); margin-bottom: 16px; line-height: 1.1; }
+  .final-cta h2 span { color: var(--red); }
+  .final-cta .serif-italic { font-size: 18px; color: var(--gray); max-width: 520px; margin: 0 auto 40px; display: block; line-height: 1.6; }
+  .final-cta .price-big {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .final-cta .old-price { color: var(--gray); text-decoration: line-through; font-size: 20px; font-family: 'IBM Plex Mono', monospace; margin-bottom: 24px; display: block; }
+  .guarantee {
+    margin-top: 28px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .guarantee::before {
+    content: '⬛';
+    font-size: 10px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070707;
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+  }
+  footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+  footer .red-dot { color: var(--red); }
+
+  /* ── DIVIDER RULE ── */
+  .rule-red { height: 3px; background: var(--red); }
+  .rule-thin { height: 1px; background: var(--lgray); margin: 0 40px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .product-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .combo-box { grid-template-columns: 1fr; }
+    .price-box { text-align: left; }
+    nav { padding: 14px 20px; }
+    .section { padding: 50px 20px; }
+    .countdown { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce">
+  🔥 LANÇAMENTO 2026 <span>·</span> COMBO ESPECIAL POR TEMPO LIMITADO <span>·</span> 2 PRODUTOS POR 1 PREÇO
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">FREQUÊNCIA <strong>VIVA</strong> · MATEUS LOBO</div>
+  <a href="#comprar" class="nav-cta">QUERO COMPRAR AGORA</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow mono">LANÇAMENTO EXCLUSIVO 2026</div>
+    <h1>
+      Você posta.<br>
+      Ninguém<br>
+      <span class="red-block">compra.</span>
+    </h1>
+    <p class="hero-sub">
+      Dois documentos construídos para resolver isso de uma vez por todas — com método, estrutura e consistência real.
+    </p>
+
+    <a href="#comprar" class="cta-btn" style="display:inline-block; font-size:13px; padding:18px 36px; margin-top:8px;">QUERO OS DOIS AGORA</a>
+
+    <div class="hero-stats">
+      <div class="stat-box">
+        <span class="stat-num">365</span>
+        <span class="stat-label">IDEIAS DE CONTEÚDO</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">10</span>
+        <span class="stat-label">CAPÍTULOS DO MANUAL</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">30+</span>
+        <span class="stat-label">FORMATOS MAPEADOS</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">5</span>
+        <span class="stat-label">TIPOS DE CRIATIVO</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule-red"></div>
+
+<!-- URGENCY -->
+<div class="urgency">
+  <p>O algoritmo mudou. O conteúdo mudou. Quem não se atualiza em 2026 não desaparece devagar — desaparece de vez.</p>
+  <span class="mono">O criador que aplica método hoje não compete com quem vai descobrir isso daqui 6 meses.</span>
+</div>
+
+<!-- PROBLEM SECTION -->
+<div class="problem-bg">
+  <div class="section">
+    <div class="section-label">O DIAGNÓSTICO</div>
+    <h2>Você não tem problema de esforço.<br>Tem problema de método.</h2>
+    <p class="lead">A maioria das pessoas posta, espera, não cresce e desiste — não por falta de talento, mas por falta de sistema.</p>
+
+    <div class="problem-grid">
+      <div class="prob-card active">
+        <span class="prob-num">01</span>
+        <h3>Você posta sem consistência</h3>
+        <p>Semana boa: 5 posts. Semana ruim: zero. O algoritmo penaliza quem é imprevisível — e você nunca atinge o volume mínimo para crescer.</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-num">02</span>
+        <h3>Você não sabe o que postar</h3>
+        <p>Abre o celular, tela em branco, 20 minutos gastos. No fim, posta qualquer coisa — e o resultado é exatamente esse: qualquer coisa.</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-num">03</span>
+        <h3>Seus hooks não prendem</h3>
+        <p>Você grava, edita, publica — e 70% das pessoas sai nos primeiros 3 segundos. O problema não é o conteúdo: é a entrada.</p>
+      </div>
+      <div class="prob-card active">
+        <span class="prob-num">04</span>
+        <h3>Você cria conteúdo, não vendas</h3>
+        <p>Gera views, talvez seguidores — mas não converte. O criativo de venda é um formato diferente que você ainda não domina.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule-thin"></div>
+
+<!-- PRODUCTS -->
+<div class="products">
+  <div class="products-inner">
+    <div class="section-label">OS DOIS PRODUTOS</div>
+    <h2>Um sistema completo.<br>Dois documentos. Um preço.</h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-badge">PRODUTO 1</div>
+        <span class="product-num">DOCUMENTO 01 · PDF</span>
+        <h3>Manual do Criativo 2026</h3>
+        <span class="product-year">FREQUÊNCIA VIVA · MATEUS LOBO</span>
+        <p>O guia operacional completo para criar conteúdo que vende em 2026 — desde o hook até a métrica que importa de verdade.</p>
+        <ul class="feature-list">
+          <li>Os 5 Pilares do Criador de Conteúdo</li>
+          <li>Hook: os 4 tipos que funcionam em 2026</li>
+          <li>Os 5 formatos por plataforma (Reels, TikTok, Shorts...)</li>
+          <li>As 5 estruturas de criativo de venda</li>
+          <li>Métricas reais: Hook Rate, Retenção, CTR</li>
+          <li>IA na produção + 6 regras de edição</li>
+          <li>Calendário editorial — modelo de semana</li>
+          <li>As 3 leis que nunca mudam</li>
+        </ul>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge">PRODUTO 2</div>
+        <span class="product-num">DOCUMENTO 02 · PDF</span>
+        <h3>365 Dias de Postagens 2026</h3>
+        <span class="product-year">FREQUÊNCIA VIVA · MATEUS LOBO</span>
+        <p>Um calendário editorial completo com uma ideia de conteúdo para cada dia do ano — organizada por mês, por tipo e por plataforma.</p>
+        <ul class="feature-list">
+          <li>365 ideias prontas de conteúdo</li>
+          <li>30+ tipos de post mapeados e categorizados</li>
+          <li>Organização por mês + dia do ano</li>
+          <li>Tipos: Educativo, Relacional, Venda, Viral, Bastidor</li>
+          <li>Adaptável para qualquer nicho</li>
+          <li>Nunca mais tela em branco</li>
+          <li>Design editorial profissional</li>
+          <li>Atualizado para o algoritmo de 2026</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="rule-red"></div>
+
+<!-- COMBO PRICE -->
+<div class="combo-section" id="comprar">
+  <div class="combo-inner">
+    <div class="section-label">OFERTA ESPECIAL DE LANÇAMENTO</div>
+    <h2>Os dois juntos,<br>pelo preço de um.</h2>
+
+    <div class="combo-box">
+      <div>
+        <h3>Combo Manual + 365 Dias<br>Frequência Viva 2026</h3>
+        <p>Dois PDFs de design profissional, prontos para usar agora. Tudo que você precisa para parar de postar no escuro e começar a criar com método — hoje.</p>
+        <div class="bonus-tags">
+          <span class="bonus-tag hot">✦ MANUAL DO CRIATIVO 2026</span>
+          <span class="bonus-tag hot">✦ 365 DIAS DE POSTAGENS</span>
+          <span class="bonus-tag">ACESSO IMEDIATO</span>
+          <span class="bonus-tag">DOWNLOAD INSTANTÂNEO</span>
+          <span class="bonus-tag">ATUALIZADO 2026</span>
+        </div>
+      </div>
+      <div class="price-box">
+        <span class="price-old">R$ 97,00</span>
+        <span class="price-now">R$ 37</span>
+        <span class="price-note">OFERTA DE LANÇAMENTO</span>
+        <a href="#" class="cta-btn">COMPRAR AGORA →</a>
+        <span class="cta-sub">ACESSO IMEDIATO · PDF · SEM MENSALIDADE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY NOW -->
+<div class="why-now">
+  <div class="section">
+    <div class="section-label">POR QUE AGORA</div>
+    <h2>Cada semana sem método<br>é uma semana perdida.</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="icon">01</span>
+        <h3>O algoritmo não espera</h3>
+        <p>Em 2026, consistência é o novo talento. Quem posta com método toda semana acumula vantagem composta que quem improvisa nunca alcança.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">02</span>
+        <h3>Seu concorrente já está aplicando</h3>
+        <p>Enquanto você decide, alguém do seu nicho está executando o método. Você não está competindo com iniciantes — está competindo com quem já entendeu o jogo.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">03</span>
+        <h3>Valor de R$37 não dura</h3>
+        <p>Este é o preço de lançamento. Assim que o material ganhar tração e reviews, o preço sobe. Quem entra cedo paga menos e sai na frente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF / QUOTE -->
+<div class="proof-section">
+  <div class="proof-inner">
+    <div class="section-label">A VERDADE SOBRE CONTEÚDO</div>
+    <h2>O que ninguém te contou<br>sobre crescer no digital.</h2>
+
+    <div class="quote-block">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">Você não precisa de mais seguidores. Precisa de mais método. O criador que entende o mecanismo — hook, formato, frequência, métricas — sempre vence o criador que depende de inspiração.</p>
+      <span class="quote-author">— MATEUS LOBO · MANUAL DO CRIATIVO 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOR WHOM -->
+<div class="forwhom-bg">
+  <div class="forwhom-inner">
+    <div class="section-label">PARA QUEM É ISSO</div>
+    <h2>Se você se encaixa aqui,<br>este material é seu.</h2>
+
+    <ul class="check-list">
+      <li>Criadores de conteúdo que querem crescer com método, não sorte</li>
+      <li>Afiliados que precisam de criativos que convertem, não só que engajam</li>
+      <li>Infoprodutores que querem construir audiência antes de lançar</li>
+      <li>Gestores de tráfego que precisam entender o criativo orgânico para potencializar o pago</li>
+      <li>Quem posta há meses e não sente que está avançando</li>
+      <li>Quem tem talento mas não tem sistema</li>
+      <li>Quem quer parar de improvisar e começar a construir</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TIMER -->
+<div class="timer-section">
+  <h2>A oferta de lançamento tem prazo.</h2>
+  <p>Depois disso, o preço volta ao normal. Sem exceções.</p>
+
+  <div class="countdown">
+    <div class="count-box">
+      <span class="count-num" id="days">07</span>
+      <span class="count-label">DIAS</span>
+    </div>
+    <span class="count-sep">:</span>
+    <div class="count-box">
+      <span class="count-num" id="hours">23</span>
+      <span class="count-label">HORAS</span>
+    </div>
+    <span class="count-sep">:</span>
+    <div class="count-box">
+      <span class="count-num" id="minutes">59</span>
+      <span class="count-label">MIN</span>
+    </div>
+    <span class="count-sep">:</span>
+    <div class="count-box">
+      <span class="count-num" id="seconds">59</span>
+      <span class="count-label">SEG</span>
+    </div>
+  </div>
+
+  <a href="#comprar" class="cta-btn-white">GARANTIR PELO PREÇO DE LANÇAMENTO</a>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-inner">
+    <div class="section-label">PERGUNTAS FREQUENTES</div>
+    <h2>Dúvidas comuns.</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Como vou receber os materiais?</div>
+      <p class="faq-a">Acesso imediato após a compra. Você baixa os dois PDFs direto na plataforma — funciona em qualquer dispositivo, celular ou computador.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Os materiais são atualizados para 2026?</div>
+      <p class="faq-a">Sim. Todo o conteúdo foi escrito pensando nos algoritmos e formatos de 2026 — incluindo a nova dinâmica de Reels, TikTok e o peso dos Shorts no YouTube.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Funciona para qualquer nicho?</div>
+      <p class="faq-a">Funciona. O método de hook, criativo e calendário é agnóstico de nicho — foi desenhado para ser adaptável para qualquer mercado, produto ou serviço.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">E se eu não curtir o material?</div>
+      <p class="faq-a">7 dias de garantia. Se você abrir, não curtir e pedir o reembolso, devolvemos tudo sem perguntas. Mas acreditamos que isso não vai acontecer.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Preciso ter experiência com conteúdo?</div>
+      <p class="faq-a">Não. O material foi desenhado para funcionar tanto para quem está começando agora quanto para quem já posta há meses e não está vendo resultado.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-cta-inner">
+    <span class="mono">AGORA OU QUANDO FOR TARDE</span>
+    <h2>Você pode continuar<br>postando no escuro.<br>Ou pode <span>transmitir.</span></h2>
+    <span class="serif-italic">A diferença entre quem cresce e quem fica estagnado não é talento. É método. E método se aprende.</span>
+
+    <span class="old-price">De R$ 97,00</span>
+    <span class="price-big">R$ 37</span>
+
+    <a href="#" class="cta-btn" style="display:inline-block; padding:20px 48px; font-size:14px; letter-spacing:0.12em;">COMPRAR AGORA — R$ 37 →</a>
+    <br>
+    <span class="cta-sub" style="margin-top:12px; display:block;">MANUAL DO CRIATIVO 2026 + 365 DIAS DE POSTAGENS · ACESSO IMEDIATO · 7 DIAS DE GARANTIA</span>
+
+    <div class="guarantee">PAGAMENTO SEGURO · ACESSO IMEDIATO · DOWNLOAD INSTANTÂNEO</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 MATEUS LOBO <span class="red-dot">·</span> FREQUÊNCIA VIVA <span class="red-dot">·</span> TODOS OS DIREITOS RESERVADOS</p>
+  <p>mateuslobo84@gmail.com</p>
+</footer>
+
+<script>
+  // Countdown — 7 days from page load
+  const end = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+
+  function update() {
+    const diff = Math.max(0, end - Date.now());
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').textContent    = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent   = String(h).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+  }
+
+  update();
+  setInterval(update, 1000);
+</script>
+
+</body>
+</html>
